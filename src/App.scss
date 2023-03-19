@@ -10,7 +10,9 @@ p.h1 {
   height: 40vmin;
   pointer-events: none;
 }
-
+.selectbox {
+  margin-top: 1rem;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

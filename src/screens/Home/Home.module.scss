@@ -1,0 +1,102 @@
+.container {
+  text-align: center;
+  background-color: #fefcfc;
+  .produtcs {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    .produtc {
+      background-color: white;
+      width: 24rem;
+      height: 26rem;
+      border: 1px solid black;
+      margin: 1rem auto;
+      padding: 1rem;
+      border-radius: 16px;
+      .favContainer {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+      .fav {
+        border: 1px solid green;
+        color: green;
+        border-radius: 50px;
+        padding: 4px 8px;
+      }
+      img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        object-fit: contain;
+        width: 80%;
+        margin-top: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+        height: 180px;
+      }
+      .cardTitle {
+        display: flex;
+        justify-content: space-between;
+      }
+      img {
+        object-fit: contain;
+        width: 70%;
+        margin-top: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+        max-height: 50%;
+      }
+      .details {
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+      }
+      .details .price {
+        height: 100%;
+        font-size: 16px;
+        font-weight: 700;
+        align-items: end;
+      }
+      .details .title {
+        font-size: 18px;
+        font-weight: 400;
+        margin-top: 1rem;
+        justify-content: center;
+        align-items: center;
+      }
+      @mixin customButton {
+        width: 40%;
+        height: 40px;
+        border-radius: 5px;
+        margin-top: 2rem;
+        font-weight: 400;
+        letter-spacing: 1.15px;
+        background-color: #4b70e2;
+        color: #f9f9f9;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        &:active {
+          background: #e5e5e5;
+          -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+          -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+          box-shadow: inset 0px 0px 5px #c1c1c1;
+          outline: none;
+        }
+      }
+      .Addbutton {
+        @include customButton() // width: 40%;;
+;
+      }
+      .FavButton {
+        @include customButton();
+        background-color: orangered;
+        margin-right: 20px;
+        &:disabled {
+          color: black;
+        }
+      }
+    }
+  }
+}

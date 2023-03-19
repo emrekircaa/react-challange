@@ -1,0 +1,38 @@
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  position: sticky;
+  top: 0px;
+  height: 100%;
+  z-index: 1;
+  background-color: white;
+  border-bottom: 1px solid #cecece;
+  .nav_Link {
+    list-style: none;
+  }
+  li {
+    display: inline-block;
+    padding: 0px 20px;
+    cursor: pointer;
+    a {
+      color: gray;
+      text-decoration: none;
+      transition: all 0.3s ease 0s;
+      &:active {
+        color: black;
+      }
+      &:hover {
+        color: black;
+      }
+    }
+  }
+}
+@media (max-width: 665px) {
+  .navbar {
+    display: inline-block;
+    padding: 0 1rem;
+    h2 {
+      font-size: 30px;
+    }
+  }
+}

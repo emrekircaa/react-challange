@@ -97,9 +97,9 @@ function Box() {
                             closeOnClickOutside: false,
                             allowOutsideClick: false,
                             allowEscapeKey: false,
-                            text: "Favorilere eklemek ister misiniz?",
-                            confirmButtonText: "Favorilere Ekle ve Sil",
-                            cancelButtonText: "Ürünü Sil",
+                            text: "Would you like to add to favourites?",
+                            confirmButtonText: "Add to Favorites and Delete",
+                            cancelButtonText: "Delete Product",
                           } as SweetAlertOptions).then(function (result: any) {
                             if (result.isConfirmed) {
                               handleAddFav(cartItem);
@@ -142,9 +142,9 @@ function Box() {
                   closeOnClickOutside: false,
                   allowOutsideClick: false,
                   allowEscapeKey: false,
-                  text: "Tüm sepeti silmek ister misiniz?",
-                  confirmButtonText: "Evet",
-                  cancelButtonText: "Hayır",
+                  text: "Do you want to delete the whole cart?",
+                  confirmButtonText: "Yes",
+                  cancelButtonText: "No",
                 } as SweetAlertOptions).then(function (result: any) {
                   if (result.isConfirmed) {
                     handleClearCart();

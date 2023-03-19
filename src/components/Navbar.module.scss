@@ -29,10 +29,15 @@
 }
 @media (max-width: 665px) {
   .navbar {
-    display: inline-block;
+    max-width: fit-content;
     padding: 0 1rem;
     h2 {
       font-size: 30px;
+    }
+    li {
+      text-align: center;
+      display: row;
+      margin-bottom: 1rem;
     }
   }
 }

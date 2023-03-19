@@ -7,9 +7,9 @@ import SelectBox from "../../components/SelectBox";
 import { ArrowDown } from "react-feather";
 
 function Home() {
-  const [selected, setSelected] = useState("Varsayilan");
+  const [selected, setSelected] = useState("Default");
   const [isActive, setActive] = useState(false);
-  const options = ["Varsayılan", "Fiyat Artan", "Fiyat Azalan", "Puan"];
+  const options = ["Default", "Price Increasing", "Price Descending", "Rate"];
   const cart = useAppSelector((state) => state.cart);
   const dispatch = useAppDistpach();
   const [loading, setLoading] = useState(true);
@@ -37,7 +37,7 @@ function Home() {
   }, [cart]);
   const SortByValue = (data: any) => {
     const preventData = state;
-    if (data === "Fiyat Artan") {
+    if (data === "Price Increasing") {
       let newValue = state.sort((a: any, b: any) => {
         if (a.price < b.price) {
           return -1;
@@ -46,7 +46,7 @@ function Home() {
       console.log(preventData);
       setState(newValue);
     }
-    if (data === "Fiyat Azalan") {
+    if (data === "Price Descending") {
       let newValue = state.sort((a: any, b: any) => {
         if (a.price > b.price) {
           return -1;
@@ -55,7 +55,7 @@ function Home() {
       console.log(newValue);
       setState(newValue);
     }
-    if (data === "Puan") {
+    if (data === "Rate") {
       let newValue = state.sort((a: any, b: any) => {
         if (a.rating > b.rating) {
           return -1;

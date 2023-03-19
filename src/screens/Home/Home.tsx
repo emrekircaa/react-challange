@@ -3,7 +3,6 @@ import axios from "axios";
 import { addToCart, addFav } from "../../feature/cartSlices";
 import { useAppDistpach, useAppSelector } from "../../hooks/hook";
 import style from "./Home.module.scss";
-import SelectBox from "../../components/SelectBox";
 import { ArrowDown } from "react-feather";
 
 function Home() {
@@ -35,8 +34,9 @@ function Home() {
         setLoading(false);
       });
   }, [cart]);
-  const SortByValue = (data: any) => {
+  const SortByValue = (data: string) => {
     const preventData = state;
+
     if (data === "Price Increasing") {
       let newValue = state.sort((a: any, b: any) => {
         if (a.price < b.price) {
@@ -46,6 +46,7 @@ function Home() {
       console.log(preventData);
       setState(newValue);
     }
+
     if (data === "Price Descending") {
       let newValue = state.sort((a: any, b: any) => {
         if (a.price > b.price) {

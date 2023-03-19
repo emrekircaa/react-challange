@@ -1,5 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { getItem } from "../utils";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export interface Product {
   id: number;
   title: string;
@@ -42,9 +45,15 @@ const cartReducer = createSlice({
           ...state?.cartItems[existingIndex],
           cartQuantity: state?.cartItems[existingIndex]?.cartQuantity + 1,
         };
+        toast.info("Increased product quantity", {
+          position: "top-right",
+        });
       } else {
         let tempProductItem = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(tempProductItem);
+        toast.success("Product added to cart", {
+          position: "top-right",
+        });
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
@@ -54,11 +63,17 @@ const cartReducer = createSlice({
       );
       if (state.cartItems[itemIndex].cartQuantity > 1) {
         state.cartItems[itemIndex].cartQuantity -= 1;
+        toast.info("Decreased product quantity", {
+          position: "top-right",
+        });
       } else if (state.cartItems[itemIndex].cartQuantity === 1) {
         const nextCartItems = state.cartItems.filter(
           (item) => item.id !== action.payload.id
         );
         state.cartItems = nextCartItems;
+        toast.error("Product removed from cart", {
+          position: "top-right",
+        });
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
@@ -70,6 +85,9 @@ const cartReducer = createSlice({
           );
 
           state.cartItems = nextCartItems;
+          toast.error("Product removed from cart", {
+            position: "top-right",
+          });
         }
         localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
         return state;
@@ -96,6 +114,7 @@ const cartReducer = createSlice({
     clearCart(state) {
       state.cartItems = [];
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      toast.error("Cart cleared", { position: "top-right" });
     },
     addFav(state, action: PayloadAction<Product>) {
       const existingIndex = state.favItems.findIndex(
@@ -104,6 +123,9 @@ const cartReducer = createSlice({
       if (existingIndex >= 0) {
       } else {
         state.favItems.push(action.payload);
+        toast.success("Product added to Fav", {
+          position: "top-right",
+        });
       }
       localStorage.setItem("favItems", JSON.stringify(state.favItems));
     },
@@ -113,8 +135,10 @@ const cartReducer = createSlice({
           const nextCartItems = state.favItems.filter(
             (item) => item.id !== cartItem.id
           );
-
           state.favItems = nextCartItems;
+          toast.info("Product removed to Fav", {
+            position: "top-right",
+          });
         }
         localStorage.setItem("favItems", JSON.stringify(state.favItems));
         return state;

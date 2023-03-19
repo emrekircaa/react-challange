@@ -8,13 +8,13 @@ function Navbar() {
       <nav>
         <ul className="nav_Link">
           <li>
-            <NavLink to="/home">Ana Sayfa</NavLink>
+            <NavLink to="/home">Home Page</NavLink>
           </li>
           <li>
-            <NavLink to="/fav">Favoriler</NavLink>
+            <NavLink to="/fav">Favorites</NavLink>
           </li>
           <li>
-            <NavLink to="/box">Sepet</NavLink>
+            <NavLink to="/box">Box</NavLink>
           </li>
         </ul>
       </nav>

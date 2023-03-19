@@ -29,12 +29,18 @@
 }
 @media (max-width: 665px) {
   .navbar {
-    max-width: fit-content;
+    flex-direction: column;
     padding: 0 1rem;
     h2 {
       font-size: 30px;
     }
+    ul {
+      display: flex;
+      flex-direction: column;
+    }
     li {
+      flex-direction: column;
+
       text-align: center;
       display: row;
       margin-bottom: 1rem;
